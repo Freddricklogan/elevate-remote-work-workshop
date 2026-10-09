@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Student Handout · Remote and Hybrid Work Readiness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="redbar"></div>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/elevate-logo-dark.png" alt="Illinois Tech Elevate"> Remote and Hybrid Work Readiness</a>
+  <nav><a href="index.html">Home</a><a href="slides.html">Slides</a><a class="active" href="handout.html">Handout</a><a href="poll.html">Poll</a><a href="qa.html">Q&amp;A</a><a href="resources.html">Resources</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Student worksheet</div>
+  <h1>Write your working-style statement and one update today</h1>
+  <p class="lead">Everything you type saves on this device. When you're done, download it, email it to Career Services, or print it. Nothing is sent anywhere until you choose to send it.</p>
+  <p class="noprint"><button class="btn" onclick="exportText()">Download my worksheet</button> <button class="btn ghost" onclick="emailIt()">Email it to Career Services</button> <button class="btn ghost" onclick="window.print()">Print</button> <button class="btn ghost small" onclick="clearAll()">Clear</button></p>
+</div></section>
+
+<div id="embedForm" class="wrap" style="display:none"></div>
+
+<section class="section"><div class="wrap grid c2"><div class="card"><span class="pill">Step 0</span><h2>About you</h2><label>Name</label><input type="text" data-store="h_name" placeholder="First and last name"><label>Major and year</label><input type="text" data-store="h_major" placeholder="e.g., Mechanical Engineering, 3rd year"><label>Illinois Tech email</label><input type="text" data-store="h_email" placeholder="you@hawk.illinoistech.edu"><label>A team project I'm on right now (class, club, job)</label><input type="text" data-store="h_project" placeholder=""></div><div class="card"><span class="pill">Step 1 · 60 seconds</span><h2>The inventory</h2><p>Every tool you have used to get work done with someone who was not in the room.</p><label>Tools I've used with a team online</label><textarea data-store="h_tools" placeholder="Teams, GitHub, Google Docs, Discord, a shared spreadsheet…"></textarea><label>Remote or hybrid work I've already done (group projects count)</label><textarea data-store="h_remote" placeholder=""></textarea></div></div></section><section class="section alt"><div class="wrap grid c2"><div class="card"><span class="pill">Step 2 · 2 minutes</span><h2>Your working style in two sentences</h2><label>Sentence 1: when and how you communicate (hours, tools, response time)</label><input type="text" data-store="ws1" placeholder="I work… I&#x27;m on… I answer within…"><label>Sentence 2: how your work stays visible (updates, documents, where things live)</label><input type="text" data-store="ws2" placeholder="I post… I keep everything in…"><div class="preview" id="aboutPreview" style="margin-top:12px">Your working-style statement will appear here.</div></div><div class="card"><span class="pill">Step 3 · 3 minutes</span><h2>Your risk and your rule</h2><label>My biggest remote-work risk</label><select data-store="h_risk"><option value="">Choose…</option><option>I go quiet when I'm stuck</option><option>I over-message and interrupt</option><option>I miss deadlines nobody is watching</option><option>I don't know what's expected</option><option>Time zones and odd hours</option></select><label>The habit that fixes it (from the slide, in your words)</label><textarea data-store="h_fix" placeholder=""></textarea><label>My response-time rule (e.g., within two hours, 9–5 Central, weekdays)</label><input type="text" data-store="h_rule" placeholder=""></div></div></section><section class="section"><div class="wrap grid c2"><div class="card"><span class="pill">Step 4 · 8 minutes</span><h2>One Done / Doing / Blocked update</h2><label>Project and who the update goes to</label><input type="text" data-store="u_to" placeholder="e.g., Senior design, to Prof. Lee and the team"><label>Done: what you finished, specific, with links or file names</label><textarea data-store="u_done" placeholder=""></textarea><label>Doing: what you're on now</label><textarea data-store="u_doing" placeholder=""></textarea><label>By when (a date and time)</label><input type="text" data-store="u_when" placeholder="Thursday 3 p.m. Central"><label>Blocked: what you need and from whom ("nothing" is fine)</label><textarea data-store="u_blocked" placeholder=""></textarea><label>Where the work lives (folder, repo, channel)</label><input type="text" data-store="u_where" placeholder=""><label>Partner's verdict: could they act on it without asking? What was missing?</label><input type="text" data-store="u_verdict" placeholder=""></div><div class="card"><span class="pill">Step 5</span><h2>Your remote day</h2><label>Deep-work block I'll put on my calendar (day and hours)</label><input type="text" data-store="d_block" placeholder=""><label>Where I'll post daily updates</label><input type="text" data-store="d_post" placeholder=""><label>Friday summary: three done, one learned, one needed. Who gets it?</label><input type="text" data-store="d_weekly" placeholder=""><p class="hint">Rehearse it for credit: the <a href="https://elevate.iit.edu/experiences/gain-global-work-experience-from-anywhere/">remote global internship through Virtual Internships</a> (8–10 weeks, 15–20 hours a week, for credit or non-credit) and <a href="https://elevate.iit.edu/experiences/category/job-simulations/">Forage job simulations</a> are both on the portal.</p></div></div></section>
+<section class="section alt"><div class="wrap grid c2">
+  <div class="card">
+    <span class="pill">Last step</span><h2>Before you leave, take it with you</h2>
+    <p class="hint" style="margin:0 0 10px">Everything above is saved on this device only. Use the buttons at the top to <b>download</b> it as a text file, <b>email</b> it to yourself or to Freddrick, or <b>print</b> it. Then:</p>
+    <div class="check"><input type="checkbox" data-store="c1" id="k1"><label for="k1">Working-style paragraph drafted (hours, tools, response time, visibility)</label></div><div class="check"><input type="checkbox" data-store="c2" id="k2"><label for="k2">One Done / Doing / Blocked update written with a by-when</label></div><div class="check"><input type="checkbox" data-store="c3" id="k3"><label for="k3">Response-time rule set and written down</label></div><div class="check"><input type="checkbox" data-store="c4" id="k4"><label for="k4">Biggest remote risk named, with the habit that fixes it</label></div><div class="check"><input type="checkbox" data-store="c5" id="k5"><label for="k5">One remote experience identified on Elevate</label></div><div class="check"><input type="checkbox" data-store="c6" id="k6"><label for="k6">One-on-one booked to make the paragraph interview-ready</label></div>
+    <p style="margin-top:14px"><a class="btn" id="bookBtn" href="#">Book a one-on-one</a> <a class="btn ghost" id="checkinBtn" href="#">Check in on 312</a></p>
+  </div>
+  <div class="card">
+    <h2>Keep going on Elevate</h2>
+    <p>The <a href="https://elevate.iit.edu/experiences/gain-global-work-experience-from-anywhere/">remote global internship</a> is a full remote job rehearsal, 8–10 weeks, open to all years. <a href="https://elevate.iit.edu/experiences/category/job-simulations/">Forage job simulations</a> are free, self-paced, and come with a certificate. <a href="https://adoption.microsoft.com/en-us/user-training/get-started-with-microsoft-teams">Microsoft's Teams training</a> takes an afternoon.</p>
+    <p class="hint">On <a href="https://elevate.iit.edu/">elevate.iit.edu</a>: <a href="https://elevate.iit.edu/blog/2026/08/18/394225/">AI Career Coach</a> · <a href="https://elevate.iit.edu/channels/create-a-resume-cover-letter/">résumé and cover letter</a> · <a href="https://elevate.iit.edu/channels/find-an-internship-co-op/">internships and co-ops</a> · <a href="https://elevate.iit.edu/channels/free-industry-certifications/">free certifications</a> · <a href="https://elevate.iit.edu/career-coaches/">career coaches</a>.</p>
+  </div>
+</div></section>
+<footer class="footer"><div class="wrap">
+  <div>Career Services and Experiential Learning · Illinois Institute of Technology · MTCC Room 106 · 312.567.6800 · <a href="https://elevate.iit.edu">elevate.iit.edu</a></div>
+  <div>© 2026 Freddrick Logan, PhD · <a href="https://fredlogan.phd">fredlogan.phd</a></div>
+</div></footer>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script>
+const C = window.PW_CONFIG;
+function sheet(){
+  const g=k=>PW.get(k,'');
+  return `ELEVATE WORKSHOP 3: REMOTE AND HYBRID WORK READINESS · ${C.eventDate}
+Name: ${g('h_name')}   Major/Year: ${g('h_major')}   Email: ${g('h_email')}
+Current team project: ${g('h_project')}
+
+TOOLS I'VE USED: ${g('h_tools')}
+REMOTE WORK DONE: ${g('h_remote')}
+
+WORKING-STYLE STATEMENT:
+${g('ws1')} ${g('ws2')}
+
+RISK: ${g('h_risk')}
+FIX: ${g('h_fix')}
+RESPONSE-TIME RULE: ${g('h_rule')}
+
+UPDATE to ${g('u_to')}
+Done: ${g('u_done')}
+Doing: ${g('u_doing')}  By when: ${g('u_when')}
+Blocked: ${g('u_blocked')}
+Where it lives: ${g('u_where')}
+Partner's verdict: ${g('u_verdict')}
+
+Deep-work block: ${g('d_block')}   Daily updates: ${g('d_post')}
+Friday summary to: ${g('d_weekly')}
+
+CHECKLIST: ${["c1", "c2", "c3", "c4", "c5", "c6"].map((k,i)=>(PW.get(k,false)?'[x]':'[ ]')+' '+(i+1)).join('  ')}`;
+}
+function exportText(){ PW.download('Elevate-Remote-Work-Worksheet.txt', sheet()); }
+function emailIt(){ location.href='mailto:'+C.staffEmail+'?subject='+encodeURIComponent('Remote and Hybrid Work Readiness worksheet: '+PW.get('h_name',''))+'&body='+encodeURIComponent(sheet()); }
+function clearAll(){ if(confirm('Clear everything you typed on this device?')){ localStorage.removeItem('elevate-remote-work-workshop'); location.reload(); } }
+function prev(){ const a=PW.get('ws1',''),b=PW.get('ws2',''); const el=document.getElementById('aboutPreview'); if(el) el.textContent=(a||b)?(a+' '+b).trim():'Your working-style statement will appear here.'; }
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('bookBtn').href=C.bookingUrl; document.getElementById('checkinBtn').href=C.checkinUrl;
+  document.querySelectorAll('[data-store="ws1"],[data-store="ws2"]').forEach(el=>el.addEventListener('input',prev)); prev();
+  document.querySelectorAll('.check input').forEach(cb=>{ const f=()=>cb.closest('.check').classList.toggle('done',cb.checked); cb.addEventListener('change',f); f(); });
+  if(C.formEmbedUrl){ const d=document.getElementById('embedForm'); d.style.display='block'; d.innerHTML='<div class="card"><h2>Submit your worksheet</h2><iframe src="'+C.formEmbedUrl+'" style="width:100%;height:900px;border:0" allowfullscreen></iframe></div>'; }
+});
+</script>
+</body>
+</html>
