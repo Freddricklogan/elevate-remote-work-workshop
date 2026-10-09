@@ -96,8 +96,9 @@
   .slide input[type=text],.slide textarea{font-size:18px}
   .on .reveal{animation-play-state:running}
   @media (max-width:760px){.slide{padding:4vh 5vw 70px;overflow:auto;justify-content:flex-start}.cols.two,.vs{grid-template-columns:1fr}.vs .mid{text-align:center}.hud{font-size:12px}}
+  .slide .cols .box:has(.stat){display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 22px}.slide .cols .box .stat small{font-size:clamp(18px,1.8vw,26px);color:var(--ink);margin:14px auto 0;max-width:24ch;line-height:1.3}.slide.ink .cols .box .stat small{color:#E8E5DD}.slide.accent .cols .box .stat small{color:#FFD2D2}
   @media (prefers-reduced-motion: reduce){.draw,.typing,.pages span,.bgart .orb,.slide.on{animation:none;opacity:1;stroke-dashoffset:0;width:auto}}
-.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:6px 0 14px}.tl div{height:14px;border-radius:7px;background:var(--line);transition:background .3s,transform .3s}.tl div.on{background:var(--accent);transform:scaleY(1.6)}
+.slide .cols .box:has(.stat){display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 22px}.slide .cols .box .stat small{font-size:clamp(18px,1.8vw,26px);color:var(--ink);margin:14px auto 0;max-width:24ch;line-height:1.3}.slide.ink .cols .box .stat small{color:#E8E5DD}.slide.accent .cols .box .stat small{color:#FFD2D2}.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:6px 0 14px}.tl div{height:14px;border-radius:7px;background:var(--line);transition:background .3s,transform .3s}.tl div.on{background:var(--accent);transform:scaleY(1.6)}
 </style>
 </head>
 <body>
@@ -146,9 +147,9 @@
   <div class="eyebrow reveal">The next 45 minutes</div>
   <h2 class="reveal">One habit, one update, one paragraph.</h2>
   <div class="cols">
-    <div class="box reveal"><p class="stat" style="font-size:clamp(40px,5vw,72px)">1<small>habit: make your work visible before anyone asks</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(40px,5vw,72px)">1<small>Done / Doing / Blocked update, written today</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(40px,5vw,72px)">1<small>paragraph on how you work, ready for an interview</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(60px,7.5vw,120px)">1<small>Build one habit: make your work visible before anyone asks</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(60px,7.5vw,120px)">1<small>Write one Done / Doing / Blocked update today</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(60px,7.5vw,120px)">1<small>Draft one paragraph on how you work, ready for an interview</small></p></div>
   </div>
   <p class="lead reveal" style="margin-top:22px">Bring one team project to mind now: a class, a club, a job. You will write today's update as if it were real.</p>
 </section>
@@ -180,7 +181,7 @@
       <input type="text" data-store="ws1" placeholder="I work 9 to 5 Central, I&#x27;m on Teams and email, and I answer within two hours during those hours…">
       <label>Sentence 2: how your work stays visible (updates, documents, where things live)</label>
       <input type="text" data-store="ws2" placeholder="I post a Done / Doing / Blocked update every morning and keep everything in the shared folder…">
-      <p class="quiet">Two minutes of silence. A volunteer reads theirs; we type it here.</p>
+      <p class="quiet">Write in silence for two minutes. Then one volunteer reads theirs aloud and we type it here.</p>
     </div>
     <div class="box reveal"><p class="quiet" style="margin:0 0 8px">Live preview</p><div class="preview" id="aboutPreview" style="font-size:clamp(18px,2vw,26px);font-family:var(--serif)">Your working-style statement will appear here.</div><p><button class="btn small" onclick="PW.copy(document.getElementById('aboutPreview').textContent)">Copy</button></p></div>
   </div>
@@ -242,9 +243,9 @@
   <div class="eyebrow reveal">Practice before the job</div>
   <h2 class="reveal">You can rehearse remote work this semester. For credit.</h2>
   <div class="cols">
-    <div class="box reveal"><p class="stat" style="font-size:clamp(36px,4.6vw,64px)">Class<small>group projects run on Teams and GitHub; IPRO teams that meet online; the status update you post anyway</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(36px,4.6vw,64px)">Elevate<small>the Virtual Internships remote internship (8–10 weeks, for credit or non-credit), Forage job simulations, Braven</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(36px,4.6vw,64px)">Life<small>a club you run from a group chat, freelance work, a part-time job with a manager you rarely see</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(44px,5.2vw,80px)">Class<small>Run your next group project on Teams or GitHub and post the update anyway</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(44px,5.2vw,80px)">Elevate<small>Apply for the Virtual Internships remote internship (8–10 weeks); start a Forage simulation this week</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(44px,5.2vw,80px)">Life<small>Pick the club, job, or freelance work where a manager rarely sees you, and write them an update</small></p></div>
   </div>
   <div class="ask reveal" style="margin-top:18px">Ask the room</div>
   <p class="lead reveal">Name one team you are on right now where nobody can see you work.</p>
@@ -273,7 +274,7 @@
   <div class="eyebrow reveal">0:41 · Before you leave</div>
   <h2 class="reveal">What leaves the room with you.</h2>
   <div class="cols two">
-    <div class="box reveal"><div class="check"><input type="checkbox" data-store="c1" id="c1"><label for="c1">Working-style paragraph drafted (hours, tools, response time, visibility)</label></div><div class="check"><input type="checkbox" data-store="c2" id="c2"><label for="c2">One Done / Doing / Blocked update written with a by-when</label></div><div class="check"><input type="checkbox" data-store="c3" id="c3"><label for="c3">Response-time rule set and written down</label></div><div class="check"><input type="checkbox" data-store="c4" id="c4"><label for="c4">Biggest remote risk named, with the habit that fixes it</label></div><div class="check"><input type="checkbox" data-store="c5" id="c5"><label for="c5">One remote experience identified on Elevate</label></div><div class="check"><input type="checkbox" data-store="c6" id="c6"><label for="c6">One-on-one booked to make the paragraph interview-ready</label></div></div>
+    <div class="box reveal"><div class="check"><input type="checkbox" data-store="c1" id="c1"><label for="c1">Draft your working-style paragraph (hours, tools, response time, visibility)</label></div><div class="check"><input type="checkbox" data-store="c2" id="c2"><label for="c2">Write one Done / Doing / Blocked update with a by-when</label></div><div class="check"><input type="checkbox" data-store="c3" id="c3"><label for="c3">Set your response-time rule and write it down</label></div><div class="check"><input type="checkbox" data-store="c4" id="c4"><label for="c4">Name your biggest remote risk and the habit that fixes it</label></div><div class="check"><input type="checkbox" data-store="c5" id="c5"><label for="c5">Pick one remote experience on Elevate to start</label></div><div class="check"><input type="checkbox" data-store="c6" id="c6"><label for="c6">Book a one-on-one to make the paragraph interview-ready</label></div></div>
     <div class="box reveal"><p class="quiet" style="margin:0 0 6px">Keep going</p><p>Book a one-on-one: <a id="bookLink" href="#">30 minutes with Career Services</a></p><p><a href="https://elevate.iit.edu/experiences/gain-global-work-experience-from-anywhere/">Remote global internship (Virtual Internships)</a> · <a href="https://elevate.iit.edu/experiences/category/job-simulations/">Forage job simulations</a> · <a href="https://adoption.microsoft.com/en-us/user-training/get-started-with-microsoft-teams">Teams training</a></p></div>
   </div>
 </section>
