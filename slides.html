@@ -12,7 +12,7 @@
   .deck{position:relative;height:100vh;width:100vw}
   .bgart{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
   .bgart .orb{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;animation:drift 22s ease-in-out infinite alternate}
-  .bgart .o1{width:48vw;height:48vw;right:-12vw;top:-18vw;background:radial-gradient(closest-side,var(--accent-soft),transparent 70%)}
+  .bgart .o1{width:48vw;height:48vw;right:-12vw;top:-18vw;background:radial-gradient(closest-side,rgba(118,119,123,.14),transparent 70%)}
   .bgart .o2{width:36vw;height:36vw;left:-10vw;bottom:-14vw;background:radial-gradient(closest-side,rgba(255,153,0,.10),transparent 70%);animation-delay:-9s}
   .bgart .grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.28;mask-image:radial-gradient(ellipse at 70% 30%,#000 0%,transparent 70%)}
   .slide{position:absolute;inset:0;display:none;padding:5vh 7vw 70px;flex-direction:column;justify-content:center;z-index:1;overflow:auto}
@@ -75,7 +75,7 @@
   .cs .ttl{font-family:var(--serif);font-weight:600;font-size:clamp(18px,1.9vw,26px);color:var(--ink);margin:0 0 10px;line-height:1.15}
   .cs .f{display:grid;grid-template-columns:86px 1fr;gap:6px 10px;font-size:clamp(13px,1.15vw,16px);line-height:1.35;margin:0 0 6px}
   .cs .f b{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);padding-top:3px}
-  .cs .f .num{background:var(--accent-soft);color:var(--accent);font-weight:700;padding:0 5px;border-radius:5px}
+  .cs .f .num{color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent)}
   .cs .visual{background:var(--surface-2);border-left:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;gap:8px}
   .cs .visual svg{width:100%;height:auto;max-height:150px}
   .cs .visual small{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
@@ -99,6 +99,36 @@
   .slide .cols .box:has(.stat){display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 22px}.slide .cols .box .stat small{font-size:clamp(18px,1.8vw,26px);color:var(--ink);margin:14px auto 0;max-width:24ch;line-height:1.3}.slide.ink .cols .box .stat small{color:#E8E5DD}.slide.accent .cols .box .stat small{color:#FFD2D2}
   @media (prefers-reduced-motion: reduce){.draw,.typing,.pages span,.bgart .orb,.slide.on{animation:none;opacity:1;stroke-dashoffset:0;width:auto}}
 .slide .cols .box:has(.stat){display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 22px}.slide .cols .box .stat small{font-size:clamp(18px,1.8vw,26px);color:var(--ink);margin:14px auto 0;max-width:24ch;line-height:1.3}.slide.ink .cols .box .stat small{color:#E8E5DD}.slide.accent .cols .box .stat small{color:#FFD2D2}.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:6px 0 14px}.tl div{height:14px;border-radius:7px;background:var(--line);transition:background .3s,transform .3s}.tl div.on{background:var(--accent);transform:scaleY(1.6)}
+  .slide .formula{font-size:clamp(14px,min(1.35vw,2.3vh),19px);margin:6px 0 10px}
+  .ink .formula{background:#1B1B20;border-color:#2B2B31;border-left-color:#FF4A4A;color:#E8E5DD}.ink .formula .b{background:#2B2B31;color:#C9C6BE}.ink .formula .eg{color:#9A9A9F}
+  .slide p.timer{font-size:clamp(44px,min(8vw,13vh),120px);line-height:1;margin:0 0 10px}
+/* 2026-10 QA pass: never clip tall slides, fit short screens */
+.slide{justify-content:safe center}
+@media (max-height:920px){
+  .slide{padding-top:4vh;padding-bottom:58px}
+  .slide h1{font-size:clamp(40px,10vh,96px)}
+  .slide h2{font-size:clamp(28px,6.2vh,56px)}
+  .slide .lead{font-size:clamp(17px,2.7vh,26px)}
+  .slide p,.slide li,.slide label{font-size:clamp(15px,2.35vh,22px)}
+  .slide .cols .box:has(.stat){padding:18px 18px}
+  .slide .cols .box .stat small{font-size:clamp(15px,2.3vh,22px)}
+  .check{padding:5px 0}
+  .ask{margin:4px 0 8px}
+  .photo.wide{aspect-ratio:16/5.5}
+  .cs{grid-template-columns:1fr}.cs .visual{display:none}
+  .cs .f{line-height:1.28;margin:0 0 4px}
+  .cs .body{padding:14px 18px}
+  .seq .step{padding:8px 0}
+}
+@media (max-height:760px){
+  .slide h2{font-size:clamp(26px,5.6vh,44px);margin-bottom:8px}
+  .photo.wide{aspect-ratio:16/4.2}
+  .slide .cols{margin-top:8px}
+  .slide .cols .box:has(.stat){padding:14px 16px}
+}
+/* fit fixes: stats slide, sources slide, build slide on short screens */
+@media (max-height:920px){.vs{gap:18px}.vs .art{max-height:100px}.vs .stat{font-size:clamp(32px,min(4.5vw,8vh),64px)!important}.slide:has(.cols + .ask) .cols{margin-top:10px}.slide:has(.cols + .ask) .cols .box .stat{font-size:clamp(40px,min(5.2vw,8.5vh),80px)!important}.slide:has(.cols + .ask) .cols .box .stat small{margin-top:10px}}
+@media (max-height:760px){.vs .art{display:none}.tight-hide{display:none}.slide .formula{font-size:clamp(13px,2.1vh,16px);padding:8px 12px;line-height:1.5}.seq .step{padding:6px 0}.slide .cols .box .stat small{line-height:1.25}}
 </style>
 </head>
 <body>
@@ -177,6 +207,7 @@
   <h2 class="reveal">How you work, in two sentences.</h2>
   <div class="cols two">
     <div class="box reveal">
+      <div class="formula"><span class="fx">Formula</span>I'm online <span class="b">hours + time zone</span> on <span class="b">days</span>, reachable on <span class="b">tool</span>, and I reply within <span class="b">time</span>. I post updates in <span class="b">channel</span> every <span class="b">frequency</span>, and my work lives in <span class="b">folder / repo / doc</span>.</div>
       <label>Sentence 1: when and how you communicate (hours, tools, response time)</label>
       <input type="text" data-store="ws1" placeholder="I work 9 to 5 Central, I&#x27;m on Teams and email, and I answer within two hours during those hours…">
       <label>Sentence 2: how your work stays visible (updates, documents, where things live)</label>
@@ -192,7 +223,8 @@
   <div class="eyebrow reveal">0:13 · The update shape</div>
   <h2 class="reveal">Done. Doing. Blocked. By when.</h2>
   <div class="seq" style="max-width:900px"><div class="step reveal"><div class="n">D</div><div><b style="color:#F4F2EC">Done.</b> What you finished since the last update. Specific: file names, numbers, links.</div></div><div class="step reveal"><div class="n">D</div><div><b style="color:#F4F2EC">Doing.</b> What you are on now and when it will be done. A date, not "soon."</div></div><div class="step reveal"><div class="n">B</div><div><b style="color:#F4F2EC">Blocked.</b> What you need and from whom. Blank is fine; "nothing" is a real answer.</div></div></div>
-  <div class="ask reveal" style="margin-top:18px">Ask the room</div>
+  <div class="formula reveal" style="margin-top:12px;max-width:900px"><span class="fx">Update formula</span>Done: <span class="b">finished item + link</span>. Doing: <span class="b">current task</span>, by <span class="b">date, time</span>. Blocked: <span class="b">what I need</span> from <span class="b">person</span>, or &ldquo;nothing.&rdquo;</div>
+  <div class="ask reveal" style="margin-top:10px">Ask the room</div>
   <p class="lead reveal">Give me a project from this semester. We write its update together on the next slide.</p>
 </section>
 
@@ -214,6 +246,7 @@
       <label>What is your biggest remote-work risk?</label>
       <select id="major" onchange="matchPlatform()"><option value="">Choose…</option><option value="quiet">I go quiet when I'm stuck</option><option value="over">I over-message and interrupt</option><option value="deadline">I miss deadlines nobody is watching</option><option value="expect">I don't know what's expected</option><option value="tz">Time zones and odd hours</option></select>
       <div class="preview" id="platformOut" style="margin-top:12px">Pick a risk to see the habit that fixes it.</div>
+      <div class="formula" style="margin:12px 0 0"><span class="fx">Formula for yours</span>My risk is <span class="b">risk</span>, so I will <span class="b">habit</span> every <span class="b">when</span>.</div>
     </div>
     <div class="box reveal" style="text-align:center"><div class="ask">Live poll · Q2</div><p style="margin:0 0 10px">What is your biggest remote-work risk?</p><img src="assets/poll-qr.png" alt="Poll QR" style="width:min(200px,40vw);background:#fff;padding:6px;border-radius:10px"><p class="quiet"><span class="pollShort"></span></p></div>
   </div>
@@ -266,7 +299,8 @@
       <div class="seq"><div class="step"><div class="n" style="font-size:22px;min-width:3.2em">8:00</div><div>Pick one real project. Fill the update fields on the <b>Handout</b> page: Done, Doing with a date, Blocked, where the work lives.</div></div><div class="step"><div class="n" style="font-size:22px;min-width:3.2em">3:00</div><div>Swap phones with a neighbor. They read it as your manager and answer one question: can I act on this without asking anything? If not, what is missing? That is your edit.</div></div></div>
     </div>
   </div>
-  <p class="lead reveal" style="margin-top:8px;font-size:clamp(17px,1.8vw,24px)">Specific. Dated. Linked. Post it before anyone asks.</p>
+  <div class="formula reveal" style="margin:8px 0 0"><span class="fx">Update formula</span>Done: <span class="b">finished item + link</span>. Doing: <span class="b">current task</span>, by <span class="b">date, time</span>. Blocked: <span class="b">what I need</span> from <span class="b">person</span>, or &ldquo;nothing.&rdquo;</div>
+  <p class="lead reveal tight-hide" style="margin-top:8px;font-size:clamp(17px,1.8vw,24px)">Specific. Dated. Linked. Post it before anyone asks.</p>
 </section>
 
 <!-- 12 Checklist -->
