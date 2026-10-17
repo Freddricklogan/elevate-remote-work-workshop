@@ -118,7 +118,22 @@
 .slide:has(.startrow) .cols.two{grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr)}
 @media (max-height:920px){.startrow .preview{font-size:clamp(15px,2.2vh,19px);line-height:1.4;padding:12px 14px}.photo.start{height:clamp(140px,24vh,220px)}}
 @media (max-height:760px){.startrow .preview{font-size:clamp(14px,2vh,16px);line-height:1.35;padding:10px 12px;min-height:0}.photo.start{height:clamp(130px,21vh,170px)}}
-/* 2026-10 QA pass: never clip tall slides, fit short screens */
+/* Background photos and paired stat cards (same recipe as the reference deck) */
+.slide.has-bg{isolation:isolate}
+.bgphoto{position:absolute;inset:0;z-index:-1;background-size:cover;background-position:center}
+.slide > .credit{left:auto;right:18px;bottom:46px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:10px 0 18px}
+.duo .box{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:20px 22px}
+.duo svg{width:52px;height:52px;flex:none}
+.duo svg.wide{width:96px;height:64px}
+.duo .stat{font-size:clamp(46px,min(6vw,11vh),92px)!important;margin:4px 0 0}
+.duo .stat small{margin-top:8px;font-size:clamp(15px,1.4vw,19px);color:var(--body)}
+.duo .unit{font-family:var(--sans);font-size:.36em;color:var(--muted);margin-left:6px;letter-spacing:0}
+.photo.side{margin-top:12px}
+@media (max-height:920px){.duo .stat{font-size:clamp(40px,min(5vw,9vh),76px)!important}.duo .box{padding:14px 18px}.duo .stat small{font-size:clamp(14px,1.3vw,17px);margin-top:6px}}
+@media (max-height:760px){.duo .stat small{line-height:1.25}.photo.start.side{height:clamp(110px,18vh,150px)}}
+@media (max-width:760px){.duo{grid-template-columns:1fr}.slide > .credit{bottom:52px}}
+/* QA pass: never clip tall slides, fit short screens */
 .slide{justify-content:safe center}
 @media (max-height:920px){
   .slide{padding-top:4vh;padding-bottom:58px}
@@ -153,14 +168,16 @@
 <div class="deck" id="deck">
 
 <!-- 1 Title -->
-<section class="slide on accent">
+<section class="slide on accent has-bg">
+  <div class="bgphoto" style="background-image:linear-gradient(135deg,rgba(204,0,0,.93) 0%,rgba(140,0,0,.9) 100%),url('https://images.unsplash.com/photo-1591382696684-38c427c7547a?w=1920&q=75&auto=format&fit=crop')"></div>
+  <span class="credit">Photo: <a href="https://unsplash.com/@mikeyharris?utm_source=elevate_workshops&amp;utm_medium=referral">Mikey Harris</a> / <a href="https://unsplash.com/?utm_source=elevate_workshops&amp;utm_medium=referral">Unsplash</a></span>
   <img class="reveal" src="assets/elevate-logo-white.png" alt="Illinois Tech Elevate" style="height:78px;width:auto;align-self:flex-start;margin-bottom:30px">
   <div class="eyebrow reveal">Elevate Workshop 3 of 4 · Career Services and Experiential Learning</div>
   <h1 class="reveal">Write it down, or it didn't happen.</h1>
   <p class="lead reveal">On a distributed team nobody sees you work. They see what you write. In 45 minutes you will be able to say exactly how you work remotely, and prove it with one update.</p>
   <div class="reveal" style="margin-top:34px;display:flex;gap:34px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.35);padding-top:16px;max-width:760px">
-    <div><div style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#FFD2D2">Thursday</div><div style="font-size:clamp(16px,1.6vw,22px);font-weight:600">November 5, 2026 · 12:45 p.m.</div></div>
-    <div><div style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#FFD2D2">Where</div><div style="font-size:clamp(16px,1.6vw,22px);font-weight:600">Hermann Hall 010 · Teams</div></div>
+    <div><div style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#FFD2D2" data-session="weekday"></div><div style="font-size:clamp(16px,1.6vw,22px);font-weight:600" data-session="datetime"></div></div>
+    <div data-when="upcoming"><div style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#FFD2D2">Where</div><div style="font-size:clamp(16px,1.6vw,22px);font-weight:600" data-session="wherex"></div></div>
     <div><div style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#FFD2D2">With</div><div style="font-size:clamp(16px,1.6vw,22px);font-weight:600">Freddrick Logan, PhD</div></div>
   </div>
 </section>
@@ -202,19 +219,21 @@
 
 <!-- 4 Why -->
 <section class="slide">
-  <div class="eyebrow reveal">0:03 · Why this matters</div>
-  <h2 class="reveal">Remote is not the exception anymore. It is the first job.</h2>
-  <div class="vs">
-    <div class="reveal"><svg class="art" viewBox="0 0 300 200" aria-hidden="true"><rect class="fill" x="60" y="80" width="180" height="100" rx="6" stroke="var(--line)"/><path class="stroke" d="M50 90 L150 25 L250 90"/><rect class="red" x="130" y="120" width="40" height="60" rx="4"/><rect class="soft" x="80" y="100" width="34" height="30" rx="4"/><rect class="soft" x="186" y="100" width="34" height="30" rx="4"/></svg>
-      <p class="stat" style="font-size:clamp(40px,6vw,88px)">26%<small>of paid days in the US were worked from home in July 2026 (WFH Research, Survey of Working Arrangements and Attitudes, September 2026)</small></p>
+  <div class="split">
+    <div>
+      <div class="eyebrow reveal">0:03 · Why this matters</div>
+      <h2 class="reveal">Remote is not the exception anymore. It is the first job.</h2>
+      <div class="duo">
+        <div class="box reveal"><svg class="art wide" viewBox="0 0 300 200" aria-hidden="true"><rect class="fill" x="60" y="80" width="180" height="100" rx="6" stroke="var(--line)"/><path class="stroke" d="M50 90 L150 25 L250 90"/><rect class="red" x="130" y="120" width="40" height="60" rx="4"/><rect class="soft" x="80" y="100" width="34" height="30" rx="4"/><rect class="soft" x="186" y="100" width="34" height="30" rx="4"/></svg>
+          <p class="stat" style="font-size:clamp(40px,6vw,88px)">26%<small>of paid days in the US were worked from home in July 2026 (WFH Research, Survey of Working Arrangements and Attitudes, September 2026)</small></p></div>
+        <div class="box reveal"><svg class="art wide" viewBox="0 0 300 200" aria-hidden="true"><circle class="fill" cx="150" cy="100" r="80" stroke="var(--line)"/><ellipse class="stroke" cx="150" cy="100" rx="36" ry="80"/><path class="stroke" d="M70 100h160M84 60h132M84 140h132"/><circle class="red" cx="110" cy="70" r="7"/><circle class="red" cx="200" cy="120" r="7"/><path class="redline draw" d="M110 70 Q150 20 200 120"/></svg>
+          <p class="stat" style="font-size:clamp(40px,6vw,88px)">51%<small>of remote-capable US employees work hybrid; in tech, fully remote and hybrid are about even (Gallup, September 2025)</small></p></div>
+      </div>
+      <div class="ask reveal">Ask the room</div>
+      <p class="lead reveal" style="margin:0">What is the last message you sent that a stranger could act on without asking you a follow-up?</p>
     </div>
-    <div class="mid reveal">vs.</div>
-    <div class="reveal"><svg class="art" viewBox="0 0 300 200" aria-hidden="true"><circle class="fill" cx="150" cy="100" r="80" stroke="var(--line)"/><ellipse class="stroke" cx="150" cy="100" rx="36" ry="80"/><path class="stroke" d="M70 100h160M84 60h132M84 140h132"/><circle class="red" cx="110" cy="70" r="7"/><circle class="red" cx="200" cy="120" r="7"/><path class="redline draw" d="M110 70 Q150 20 200 120"/></svg>
-      <p class="stat" style="font-size:clamp(40px,6vw,88px)">51%<small>of remote-capable US employees work hybrid; in tech, fully remote and hybrid are about even (Gallup, September 2025)</small></p>
-    </div>
+    <figure class="photo reveal"><img src="https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?w=900&q=80&auto=format&fit=crop&crop=faces" alt="A young woman working on a laptop at a wooden table" style="object-position:50% 35%"><span class="credit">Photo: <a href="https://unsplash.com/@andrewtneel?utm_source=elevate_workshops&amp;utm_medium=referral">Andrew Neel</a> / <a href="https://unsplash.com/?utm_source=elevate_workshops&amp;utm_medium=referral">Unsplash</a></span></figure>
   </div>
-  <div class="ask reveal">Ask the room</div>
-  <p class="lead reveal">What is the last message you sent that a stranger could act on without asking you a follow-up?</p>
 </section>
 
 <!-- 5 Builder -->
@@ -236,12 +255,17 @@
 
 <!-- 6 Framework -->
 <section class="slide ink">
+  <div class="split">
+  <div>
   <div class="eyebrow reveal">0:13 · The update shape</div>
   <h2 class="reveal">Done. Doing. Blocked. By when.</h2>
   <div class="seq" style="max-width:900px"><div class="step reveal"><div class="n">D</div><div><b style="color:#F4F2EC">Done.</b> What you finished since the last update. Specific: file names, numbers, links.</div></div><div class="step reveal"><div class="n">D</div><div><b style="color:#F4F2EC">Doing.</b> What you are on now and when it will be done. A date, not "soon."</div></div><div class="step reveal"><div class="n">B</div><div><b style="color:#F4F2EC">Blocked.</b> What you need and from whom. Blank is fine; "nothing" is a real answer.</div></div></div>
   <div class="formula reveal" style="margin-top:12px;max-width:900px"><span class="fx">Update formula</span>Done: <span class="b">finished item + link</span>. Doing: <span class="b">current task</span>, by <span class="b">date, time</span>. Blocked: <span class="b">what I need</span> from <span class="b">person</span>, or &ldquo;nothing.&rdquo;</div>
   <div class="ask reveal" style="margin-top:10px">Ask the room</div>
   <p class="lead reveal">Give me a project from this semester. We write its update together on the next slide.</p>
+  </div>
+  <figure class="photo reveal" style="box-shadow:none"><img src="https://images.unsplash.com/photo-1603195827187-459ab02554a0?w=900&q=80&auto=format&fit=crop&crop=faces" alt="Three teammates working together around one laptop" style="object-position:50% 40%"><span class="credit">Photo: <a href="https://unsplash.com/@cherrydeck?utm_source=elevate_workshops&amp;utm_medium=referral">Cherrydeck</a> / <a href="https://unsplash.com/?utm_source=elevate_workshops&amp;utm_medium=referral">Unsplash</a></span></figure>
+  </div>
 </section>
 
 <!-- 7 Examples by field -->
@@ -291,12 +315,15 @@
       <p class="lead" id="bpTitle" style="margin:14px 0 6px;font-family:var(--serif);font-weight:600">Plan</p>
       <p class="lead" id="bpText" style="margin-top:0">Post your Done / Doing / Blocked before the first meeting. Set your Teams status. Block two deep-work hours on the calendar.</p>
       <p class="quiet" id="bpHint">Tap a stage. Auto-advances every 6 seconds until you do.</p>
+      <div style="display:flex"><figure class="photo start side reveal"><img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=900&q=80&auto=format&fit=crop&crop=faces" alt="People working side by side at a long coworking table" style="object-position:50% 45%"><span class="credit">Photo: <a href="https://unsplash.com/@cowomen?utm_source=elevate_workshops&amp;utm_medium=referral">CoWomen</a> / <a href="https://unsplash.com/?utm_source=elevate_workshops&amp;utm_medium=referral">Unsplash</a></span></figure></div>
     </div>
   </div>
 </section>
 
 <!-- 10 Sources -->
-<section class="slide ink">
+<section class="slide ink has-bg">
+  <div class="bgphoto" style="background-image:linear-gradient(180deg,rgba(18,18,20,.80) 0%,rgba(18,18,20,.93) 55%,rgba(18,18,20,.97) 100%),url('https://images.unsplash.com/photo-1486607303850-bc051a4ffad4?w=1920&q=70&auto=format&fit=crop')"></div>
+  <span class="credit">Photo: <a href="https://unsplash.com/@shurshu?utm_source=elevate_workshops&amp;utm_medium=referral">Shur Shu</a> / <a href="https://unsplash.com/?utm_source=elevate_workshops&amp;utm_medium=referral">Unsplash</a></span>
   <div class="eyebrow reveal">Practice before the job</div>
   <h2 class="reveal">You can rehearse remote work this semester. For credit.</h2>
   <div class="cols">
@@ -342,7 +369,7 @@
   <div class="eyebrow reveal">Check in for Elevate credit</div>
   <h2 class="reveal" style="max-width:none">Remote work rewards the people who write clearly.<br>Be one of them.</h2>
   <div class="cols two">
-    <div class="box reveal" style="background:#fff;color:#111;text-align:center;border-color:#fff"><img src="assets/checkin-qr.png" alt="312 check-in QR" style="width:min(240px,55vw)"><p style="color:#111;margin:6px 0 0;font-size:18px"><b>Scan to check in on 312</b><br><span style="font-size:14px;color:#555" id="checkinShort"></span></p></div>
+    <div class="box reveal" style="background:#fff;color:#111;text-align:center;border-color:#fff"><div data-checkin="slide"><img src="assets/checkin-qr.png" alt="312 check-in QR" style="width:min(240px,55vw)"><p style="color:#111;margin:6px 0 0;font-size:18px"><b>Scan to check in on 312</b><br><span style="font-size:14px;color:#555" id="checkinShort"></span></p></div></div>
     <div class="box reveal"><p><b>Then</b></p><p>1. Finish the handout and download it.<br>2. Post one real update to a real team this week.<br>3. Book a one-on-one to make your paragraph interview-ready.</p><p class="quiet" style="color:#FFD2D2">Career Services and Experiential Learning · MTCC Room 106 · 312.567.6800</p></div>
   </div>
 </section>
@@ -354,7 +381,7 @@
   <div class="cols">
     <div class="box reveal" style="text-align:center"><img src="assets/qa-qr.png" alt="Question form QR" style="width:min(220px,50vw);background:#fff;padding:8px;border-radius:12px"><p style="margin:10px 0 0"><b>Ask or leave feedback</b><br><span class="quiet" id="qaShort"></span></p></div>
     <div class="box reveal" style="text-align:center"><img src="assets/booking-qr.png" alt="Booking QR" style="width:min(220px,50vw);background:#fff;padding:8px;border-radius:12px"><p style="margin:10px 0 0"><b>Book a 30-minute one-on-one</b><br><span class="quiet">Freddrick Logan · Career Services and Experiential Learning</span></p></div>
-    <div class="box reveal" style="text-align:center"><img src="assets/checkin-qr.png" alt="312 check-in QR" style="width:min(220px,50vw);background:#fff;padding:8px;border-radius:12px"><p style="margin:10px 0 0"><b>Check in on 312</b><br><span class="quiet">records your Elevate workshop credit</span></p></div>
+    <div class="box reveal" style="text-align:center"><div data-checkin="slide"><img src="assets/checkin-qr.png" alt="312 check-in QR" style="width:min(220px,50vw);background:#fff;padding:8px;border-radius:12px"><p style="margin:10px 0 0"><b>Check in on 312</b><br><span class="quiet">records your Elevate workshop credit</span></p></div></div>
   </div>
   <p class="lead reveal" style="margin-top:18px">Take your handout with you: download, email, or print it from the Handout page. Post one update this week.</p>
 </section>
@@ -363,7 +390,7 @@
 
 <div class="notes" id="notes"></div>
 <div class="hud">
-  <span><span id="count">1 / 14</span> · © 2026 Freddrick Logan, PhD · <a href="https://fredlogan.phd" style="margin-left:0">fredlogan.phd</a></span>
+  <span><span id="count">1 / 14</span> · © <span data-year></span> Freddrick Logan, PhD · <a href="https://fredlogan.phd" style="margin-left:0">fredlogan.phd</a></span>
   <span><a href="#" onclick="go(-1);return false">◀ Prev</a><a href="#" onclick="go(1);return false">Next ▶</a><a href="#" onclick="toggleNotes();return false">Notes (N)</a><a href="#" onclick="openPresenter();return false">Presenter (P)</a><a href="#" onclick="PW.toggleTheme();return false">Theme (T)</a><a href="index.html">Home</a><a href="handout.html">Handout</a></span>
 </div>
 
