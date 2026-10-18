@@ -194,6 +194,13 @@
   .hud{flex-wrap:wrap;gap:4px 10px;padding:8px 12px;background:var(--bg);border-top:1px solid var(--line)}
   .accent .hud,.ink .hud{background:var(--bg)}
 }
+
+/* "On the Hub" link chip: scarlet outline, opens the Careers & Elevate Hub in a new tab; sits in flow inside the eyebrow line */
+.hubchip{display:inline-flex;align-items:center;margin-left:12px;vertical-align:middle;padding:3px 11px;border:1.5px solid var(--accent);border-radius:999px;color:var(--accent);background:transparent;font-size:12px;font-weight:700;letter-spacing:.2px;text-transform:none;text-decoration:none;white-space:nowrap;line-height:1.4}
+.slide.ink .hubchip{border-color:#FF4A4A;color:#FF4A4A}
+.slide.accent .hubchip{border-color:#fff;color:#fff}
+.hubchip:hover{background:var(--accent);color:#fff}
+@media (max-width:760px){.hubchip{margin:6px 0 0;white-space:normal}}
 </style>
 </head>
 <body>
@@ -291,7 +298,7 @@
 <section class="slide ink">
   <div class="split">
   <div>
-  <div class="eyebrow reveal">0:13 · The update shape</div>
+  <div class="eyebrow reveal">0:13 · The update shape <a class="hubchip" href="https://elevate.iit.edu/experiences/category/job-simulations/" target="_blank" rel="noopener noreferrer">On the Hub → Job Simulations</a></div>
   <h2 class="reveal">Done. Doing. Blocked. By when.</h2>
   <div class="seq" style="max-width:900px"><div class="step reveal"><div class="n">D</div><div><b style="color:#F4F2EC">Done.</b> What you finished since the last update. Specific: file names, numbers, links.</div></div><div class="step reveal"><div class="n">D</div><div><b style="color:#F4F2EC">Doing.</b> What you are on now and when it will be done. A date, not "soon."</div></div><div class="step reveal"><div class="n">B</div><div><b style="color:#F4F2EC">Blocked.</b> What you need and from whom. Blank is fine; "nothing" is a real answer.</div></div></div>
   <div class="formula reveal" style="margin-top:12px;max-width:900px"><span class="fx">Update formula</span>Done: <span class="b">finished item + link</span>. Doing: <span class="b">current task</span>, by <span class="b">date, time</span>. Blocked: <span class="b">what I need</span> from <span class="b">person</span>, or &ldquo;nothing.&rdquo;</div>
@@ -318,7 +325,7 @@
 
 <!-- 8 Match -->
 <section class="slide">
-  <div class="eyebrow reveal">0:18 · Know your risk</div>
+  <div class="eyebrow reveal">0:18 · Know your risk <a class="hubchip" href="https://elevate.iit.edu/407233-2/" target="_blank" rel="noopener noreferrer">On the Hub → SMART Goals</a></div>
   <h2 class="reveal">Everyone has one remote failure mode. Name yours.</h2>
   <div class="cols two">
     <div class="box reveal">
@@ -337,7 +344,7 @@
 
 <!-- 9 Toggle -->
 <section class="slide">
-  <div class="eyebrow reveal">0:26 · The remote day</div>
+  <div class="eyebrow reveal">0:26 · The remote day <a class="hubchip" href="https://elevate.iit.edu/407246-2/" target="_blank" rel="noopener noreferrer">On the Hub → Working Remotely</a></div>
   <h2 class="reveal">A remote day that works has five fixed moves.</h2>
   <div class="cols two">
     <div class="reveal">
@@ -358,7 +365,7 @@
 <section class="slide ink has-bg">
   <div class="bgphoto" style="background-image:linear-gradient(180deg,rgba(18,18,20,.80) 0%,rgba(18,18,20,.93) 55%,rgba(18,18,20,.97) 100%),url('https://images.unsplash.com/photo-1486607303850-bc051a4ffad4?w=1920&q=70&auto=format&fit=crop')"></div>
   <span class="credit">Photo: <a href="https://unsplash.com/@shurshu?utm_source=elevate_workshops&amp;utm_medium=referral">Shur Shu</a> / <a href="https://unsplash.com/?utm_source=elevate_workshops&amp;utm_medium=referral">Unsplash</a></span>
-  <div class="eyebrow reveal">Practice before the job</div>
+  <div class="eyebrow reveal">Practice before the job <a class="hubchip" href="https://elevate.iit.edu/experiences/category/virtual-internships/" target="_blank" rel="noopener noreferrer">On the Hub → Virtual Internships</a></div>
   <h2 class="reveal">You can rehearse remote work this semester. For credit.</h2>
   <div class="trio">
     <div class="tcard reveal"><span class="stepno">01</span><b>Class</b><p>Run your next group project on Teams or GitHub and post the update anyway.</p></div>
@@ -394,11 +401,11 @@
 
 <!-- 12 Checklist -->
 <section class="slide">
-  <div class="eyebrow reveal">0:41 · Before you leave</div>
+  <div class="eyebrow reveal">0:41 · Before you leave <a class="hubchip" href="https://careeraccelerator.iit.edu/" target="_blank" rel="noopener noreferrer">On the Hub → Global Career Accelerator</a></div>
   <h2 class="reveal">What leaves the room with you.</h2>
   <div class="cols two">
     <div class="box reveal"><div class="check"><input type="checkbox" data-store="c1" id="c1"><label for="c1">Draft your working-style paragraph (hours, tools, response time, visibility)</label></div><div class="check"><input type="checkbox" data-store="c2" id="c2"><label for="c2">Write one Done / Doing / Blocked update with a by-when</label></div><div class="check"><input type="checkbox" data-store="c3" id="c3"><label for="c3">Set your response-time rule and write it down</label></div><div class="check"><input type="checkbox" data-store="c4" id="c4"><label for="c4">Name your biggest remote risk and the habit that fixes it</label></div><div class="check"><input type="checkbox" data-store="c5" id="c5"><label for="c5">Pick one remote experience on Elevate to start</label></div><div class="check"><input type="checkbox" data-store="c6" id="c6"><label for="c6">Book a one-on-one to make the paragraph interview-ready</label></div></div>
-    <div class="box reveal"><p class="quiet" style="margin:0 0 6px">Keep going</p><p>Book a one-on-one: <a id="bookLink" href="#">30 minutes with Career Services</a></p><p><a href="https://elevate.iit.edu/experiences/gain-global-work-experience-from-anywhere/">Remote global internship (Virtual Internships)</a> · <a href="https://elevate.iit.edu/experiences/category/job-simulations/">Forage job simulations</a> · <a href="https://adoption.microsoft.com/en-us/user-training/get-started-with-microsoft-teams">Teams training</a></p></div>
+    <div class="box reveal"><p class="quiet" style="margin:0 0 6px">Keep going</p><p>Book a one-on-one: <a id="bookLink" href="#">30 minutes with Career Services</a></p><p><a href="https://elevate.iit.edu/experiences/category/virtual-internships/">Virtual Internships</a> · <a href="https://elevate.iit.edu/experiences/category/job-simulations/">Forage job simulations</a> · <a href="https://adoption.microsoft.com/en-us/user-training/get-started-with-microsoft-teams">Teams training</a></p></div>
   </div>
 </section>
 
