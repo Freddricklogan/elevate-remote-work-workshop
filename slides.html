@@ -172,6 +172,28 @@
 .ink .tcard p{color:#D6D3CB}
 @media (max-width:760px){.trio{grid-template-columns:1fr;gap:12px}.tcard b{font-size:28px}}
 @media (max-height:760px){.tcard{padding:10px 14px}.tcard b{margin:4px 0 6px}}
+
+/* Activity slide: three numbered steps in large type, fill-in-the-blank lines */
+.steps3{list-style:none;counter-reset:s;margin:0;padding:0}
+.steps3>li{counter-increment:s;display:grid;grid-template-columns:42px 1fr;gap:2px 12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:clamp(16px,min(1.4vw,2.5vh),23px);line-height:1.35;color:var(--body)}
+.steps3>li:last-child{border-bottom:0}
+.steps3>li::before{content:counter(s);font-family:var(--serif);font-weight:600;font-size:clamp(28px,min(2.8vw,4.6vh),44px);line-height:1;color:var(--accent);grid-row:1/span 2}
+.steps3 b{color:var(--ink);font-weight:700}
+.steps3 .t{color:var(--muted);font-size:.85em}
+.blanks{grid-column:2;list-style:none;margin:2px 0 0;padding:0;font-size:.88em;color:var(--ink)}
+.blanks li{padding:2px 0;line-height:1.4}
+.bl{display:inline-block;width:3.6ch;border-bottom:2px solid var(--accent);vertical-align:-3px;margin:0 1px}
+.nocode{font-weight:600;color:var(--ink)}
+@media (max-height:760px){.steps3>li{padding:5px 0;font-size:clamp(14px,2.2vh,18px)}.blanks li{padding:0}.steps3>li::before{font-size:clamp(22px,4vh,34px)}}
+
+/* Phone layout: title fits, photo credit flows below the content, HUD is an opaque bar the slide pads for */
+@media (max-width:760px){
+  .slide{padding-bottom:132px}
+  .slide h1{font-size:clamp(34px,10vw,48px);overflow-wrap:anywhere}
+  .slide > .credit{position:static;order:99;align-self:flex-start;margin-top:14px;max-width:100%;white-space:normal;line-height:1.3;border-radius:10px}
+  .hud{flex-wrap:wrap;gap:4px 10px;padding:8px 12px;background:var(--bg);border-top:1px solid var(--line)}
+  .accent .hud,.ink .hud{background:var(--bg)}
+}
 </style>
 </head>
 <body>
@@ -355,14 +377,18 @@
     <div class="reveal">
       <div class="tabs" id="csTabs" style="margin-bottom:10px"></div>
       <div class="cs" id="csCard"></div>
-      <p class="quiet" style="margin-top:10px">A finished update looks like this: three lines, one date, one link. Templates and examples are on the <b>Resources</b> page.</p>
+      <p class="quiet tight-hide" style="margin-top:10px">A finished update looks like this: three lines, one date, one link. Templates and examples are on the <b>Resources</b> page.</p>
+      <p class="quiet nocode" style="margin-top:8px">No Slack or repo? Post it in a Teams channel, a shared Google Doc, or a plain email with the subject “Update, Monday”.</p>
     </div>
     <div class="reveal">
-      <div class="box" style="text-align:center;margin-bottom:14px"><p class="timer" id="t8" style="margin:0 0 8px">8:00</p><p style="margin:0"><button class="btn" onclick="startTimer(480,'t8')">Start 8:00</button> <button class="btn ghost small" onclick="startTimer(180,'t8')">3:00 swap</button></p></div>
-      <div class="seq"><div class="step"><div class="n" style="font-size:22px;min-width:3.2em">8:00</div><div>Pick one real project. Fill the update fields on the <b>Handout</b> page: Done, Doing with a date, Blocked, where the work lives.</div></div><div class="step"><div class="n" style="font-size:22px;min-width:3.2em">3:00</div><div>Swap phones with a neighbor. They read it as your manager and answer one question: can I act on this without asking anything? If not, what is missing? That is your edit.</div></div></div>
+      <div class="box" style="text-align:center;margin-bottom:12px"><p class="timer" id="t8" style="margin:0 0 8px">8:00</p><p style="margin:0"><button class="btn" onclick="startTimer(480,'t8')">Start 8:00</button> <button class="btn ghost small" onclick="startTimer(180,'t8')">3:00 swap</button></p></div>
+      <ol class="steps3">
+        <li><b>Pick one real project</b> <span class="t">(30 seconds: a class, a club, a job)</span></li>
+        <li><b>Fill in four blanks on the Handout page</b><ul class="blanks"><li>Done: <i class="bl"></i> (link or file name).</li><li>Doing: <i class="bl"></i>, by <i class="bl"></i>.</li><li>Blocked: I need <i class="bl"></i> from <i class="bl"></i> (or nothing).</li><li>It lives in <i class="bl"></i>.</li></ul></li>
+        <li><b>At 3:00, swap with a neighbor.</b> They read it as your manager and ask: “Can I act on this without asking anything?” Add what is missing.</li>
+      </ol>
     </div>
   </div>
-  <div class="formula reveal" style="margin:8px 0 0"><span class="fx">Update formula</span>Done: <span class="b">finished item + link</span>. Doing: <span class="b">current task</span>, by <span class="b">date, time</span>. Blocked: <span class="b">what I need</span> from <span class="b">person</span>, or &ldquo;nothing.&rdquo;</div>
   <p class="lead reveal tight-hide" style="margin-top:8px;font-size:clamp(17px,1.8vw,24px)">Specific. Dated. Linked. Post it before anyone asks.</p>
 </section>
 
