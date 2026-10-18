@@ -160,6 +160,18 @@
 /* fit fixes: stats slide, sources slide, build slide on short screens */
 @media (max-height:920px){.vs{gap:18px}.vs .art{max-height:100px}.vs .stat{font-size:clamp(32px,min(4.5vw,8vh),64px)!important}.slide:has(.cols + .ask) .cols{margin-top:10px}.slide:has(.cols + .ask) .cols .box .stat{font-size:clamp(40px,min(5.2vw,8.5vh),80px)!important}.slide:has(.cols + .ask) .cols .box .stat small{margin-top:10px}}
 @media (max-height:760px){.vs .art{display:none}.tight-hide{display:none}.slide .formula{font-size:clamp(13px,2.1vh,16px);padding:8px 12px;line-height:1.5}.seq .step{padding:6px 0}.slide .cols .box .stat small{line-height:1.25}}
+
+/* Compact three-up cards: step number, scarlet top rule, large word, one-line description */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:14px}
+.tcard{background:var(--surface);border:1px solid var(--line);border-top:4px solid #CC0000;border-radius:14px;padding:14px 18px 14px;box-shadow:var(--glow)}
+.ink .tcard{background:#1B1B20;border-color:#2B2B31;border-top-color:#CC0000;color:#D6D3CB}
+.tcard .stepno{display:block;font-size:12px;letter-spacing:2.5px;color:var(--muted);font-weight:700}
+.tcard b{display:block;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(26px,min(3vw,5.4vh),46px);line-height:1;color:var(--ink);margin:6px 0 8px}
+.ink .tcard b{color:#F4F2EC}
+.tcard p{margin:0;font-size:clamp(14px,min(1.25vw,2.2vh),18px);line-height:1.35;color:var(--body)}
+.ink .tcard p{color:#D6D3CB}
+@media (max-width:760px){.trio{grid-template-columns:1fr;gap:12px}.tcard b{font-size:28px}}
+@media (max-height:760px){.tcard{padding:10px 14px}.tcard b{margin:4px 0 6px}}
 </style>
 </head>
 <body>
@@ -209,10 +221,10 @@
 <section class="slide ink">
   <div class="eyebrow reveal">The next 45 minutes</div>
   <h2 class="reveal">One habit, one update, one paragraph.</h2>
-  <div class="cols">
-    <div class="box reveal"><p class="stat" style="font-size:clamp(60px,7.5vw,120px)">1<small>Build one habit: make your work visible before anyone asks</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(60px,7.5vw,120px)">1<small>Write one Done / Doing / Blocked update today</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(60px,7.5vw,120px)">1<small>Draft one paragraph on how you work, ready for an interview</small></p></div>
+  <div class="trio">
+    <div class="tcard reveal"><span class="stepno">01</span><b>Habit</b><p>Build one habit: make your work visible before anyone asks.</p></div>
+    <div class="tcard reveal"><span class="stepno">02</span><b>Update</b><p>Write one Done / Doing / Blocked update today.</p></div>
+    <div class="tcard reveal"><span class="stepno">03</span><b>Paragraph</b><p>Draft one paragraph on how you work, ready for an interview.</p></div>
   </div>
   <p class="lead reveal" style="margin-top:22px">Bring one team project to mind now: a class, a club, a job. You will write today's update as if it were real.</p>
 </section>
@@ -326,10 +338,10 @@
   <span class="credit">Photo: <a href="https://unsplash.com/@shurshu?utm_source=elevate_workshops&amp;utm_medium=referral">Shur Shu</a> / <a href="https://unsplash.com/?utm_source=elevate_workshops&amp;utm_medium=referral">Unsplash</a></span>
   <div class="eyebrow reveal">Practice before the job</div>
   <h2 class="reveal">You can rehearse remote work this semester. For credit.</h2>
-  <div class="cols">
-    <div class="box reveal"><p class="stat" style="font-size:clamp(44px,5.2vw,80px)">Class<small>Run your next group project on Teams or GitHub and post the update anyway</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(44px,5.2vw,80px)">Elevate<small>Apply for the Virtual Internships remote internship (8–10 weeks); start a Forage simulation this week</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(44px,5.2vw,80px)">Life<small>Pick the club, job, or freelance work where a manager rarely sees you, and write them an update</small></p></div>
+  <div class="trio">
+    <div class="tcard reveal"><span class="stepno">01</span><b>Class</b><p>Run your next group project on Teams or GitHub and post the update anyway.</p></div>
+    <div class="tcard reveal"><span class="stepno">02</span><b>Elevate</b><p>Apply for the Virtual Internships remote internship (8–10 weeks); start a Forage simulation this week.</p></div>
+    <div class="tcard reveal"><span class="stepno">03</span><b>Life</b><p>Pick the club, job, or freelance work where a manager rarely sees you, and write them an update.</p></div>
   </div>
   <div class="ask reveal" style="margin-top:18px">Ask the room</div>
   <p class="lead reveal">Name one team you are on right now where nobody can see you work.</p>
