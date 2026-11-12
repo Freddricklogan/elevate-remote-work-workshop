@@ -201,6 +201,19 @@
 .slide.accent .hubchip{border-color:#fff;color:#fff}
 .hubchip:hover{background:var(--accent);color:#fff}
 @media (max-width:760px){.hubchip{margin:6px 0 0;white-space:normal}}
+
+/* "Around the world" stat strip (international context, Nov 2026) */
+.globe{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:4px 0 16px;max-width:980px}
+.globe .glbl{grid-column:1/-1;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.globe .g{border:1px solid var(--line);border-radius:12px;padding:10px 14px;min-width:0}
+.globe .g b{display:block;font-family:var(--serif);font-weight:600;font-size:clamp(22px,min(2.4vw,4vh),34px);line-height:1.05;color:var(--accent)}
+.globe .g span{display:block;margin-top:4px;font-size:clamp(12px,1.05vw,14px);line-height:1.35;color:var(--body)}
+.ink .globe .g b{color:#FF4A4A}.ink .globe .g span{color:#D9D5CC}.ink .globe .glbl{color:#B9B4A9}
+@media (max-height:820px){.globe .g{padding:7px 10px}.globe .g span{font-size:12px}}
+@media (max-width:760px){.globe{grid-template-columns:1fr}}
+.slide:has(.globe) .vs .art{max-height:min(130px,14vh)}.slide:has(.globe) .vs{margin-top:0}
+@media (max-height:940px){.slide:has(.globe) .vs .art{display:none}}
+@media (max-height:820px){.slide:has(.globe) .duo{margin:6px 0 10px}.slide:has(.globe) .duo .box{padding:10px 16px}.slide:has(.globe) .duo svg{display:none}.slide:has(.globe) h2{margin-bottom:8px}}
 </style>
 </head>
 <body>
@@ -270,6 +283,7 @@
         <div class="box reveal"><svg class="art wide" viewBox="0 0 300 200" aria-hidden="true"><circle class="fill" cx="150" cy="100" r="80" stroke="var(--line)"/><ellipse class="stroke" cx="150" cy="100" rx="36" ry="80"/><path class="stroke" d="M70 100h160M84 60h132M84 140h132"/><circle class="red" cx="110" cy="70" r="7"/><circle class="red" cx="200" cy="120" r="7"/><path class="redline draw" d="M110 70 Q150 20 200 120"/></svg>
           <p class="stat" style="font-size:clamp(40px,6vw,88px)">51%<small>of remote-capable US employees work hybrid; in tech, fully remote and hybrid are about even (Gallup, September 2025)</small></p></div>
       </div>
+      <div class="globe reveal"><span class="glbl">Around the world · Global Survey of Working Arrangements, 2024–25</span><div class="g"><b>40</b><span>countries, 16,422 college-educated workers surveyed</span></div><div class="g"><b>1.5–2</b><span>days a week from home in English-speaking countries; 1–1.5 in Europe</span></div><div class="g"><b>0.5–1</b><span>day a week from home in Asia; about 1 in Latin America and Africa</span></div></div>
       <div class="ask reveal">Ask the room</div>
       <p class="lead reveal" style="margin:0">What is the last message you sent that a stranger could act on without asking you a follow-up?</p>
     </div>
@@ -461,7 +475,7 @@ const NOTES = [
  "Open on the idea, not the agenda. Write it down or it didn't happen is the whole workshop in one line. Then straight into the inventory.",
  "Have them list tools on phones, 60 seconds. Make the point that group projects already are remote work; most of the room has done it without naming it.",
  "Roadmap in 30 seconds. One habit, one update, one paragraph. Tell them the 0:33 activity needs a real project in mind now.",
- "Two numbers, both recent: 26% of paid days worked from home in July 2026 (WFH Research SWAA update, September 2026); 51% of remote-capable employees hybrid (Gallup, September 2025). Then the question: take two answers.",
+ "Two US numbers, both recent: 26% of paid days worked from home in July 2026 (WFH Research SWAA update, September 2026); 51% of remote-capable employees hybrid (Gallup, September 2025). Then the world strip from Stanford's Global Survey of Working Arrangements (40 countries, 16,422 workers, late 2024 to early 2025): 1.5 to 2 days a week from home in English-speaking countries, 1 to 1.5 in Europe, half a day to one in Asia. Your first team may span all three. Take two answers.",
  "Two minutes of silent drafting on the handout. One volunteer reads theirs; type it into the builder so the room sees the two-sentence shape.",
  "Take a project from the room and write its Done / Doing / Blocked out loud on the next slide. Push for a date on the Doing line every time.",
  "Click the tab for the majors in the room. Point out that every update has a date and a place the work lives.",
